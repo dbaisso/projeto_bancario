@@ -1,30 +1,35 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Marina vai abrir uma conta corrente no banco.");
 
-        ContaBanco conta = new ContaBanco("1234", "CC", 1000, 0, "fechada");
-        conta.abrirConta();
-        System.out.println("Conta " + conta.getNumConta() + " aberta. Saldo inicial: R$ " + conta.getSaldo());
+        ContaBanco conta1 = new ContaBanco();
+        conta1.setNumConta("1234-5");
+        conta1.setTipo("CC");
+        conta1.setDono("João"); 
+        conta1.abrirConta();
+        conta1.depositar(500);
+        conta1.sacar(100);
 
-        System.out.println("Marina deposita R$ 100 e depois saca R$ 50.");
-        conta.depositar(100);
-        conta.sacar(50);
+        ContaBanco conta2 = new ContaBanco();
+        conta2.setNumConta("6789-0");
+        conta2.setTipo("CP");
+        conta2.setDono("Maria");
+        conta2.abrirConta(); 
+        conta2.depositar(1000);   
+        conta2.sacar(200);
+        
 
-        System.out.println("A mensalidade da conta é descontada.");
-        conta.pagarMensal();
-        System.out.println("Saldo após as movimentações: R$ " + conta.getSaldo());
-
-        System.out.println("Marina tenta fechar a conta, mas ainda há saldo.");
-        conta.fecharConta();
-
-        System.out.println("Ela saca o valor restante e tenta fechar novamente.");
-        conta.sacar(conta.getSaldo());
-        conta.fecharConta();
-
-        System.out.println("Resumo: conta " + conta.getNumConta()
-                + ", tipo " + conta.getTipo()
-                + ", titular " + conta.getDono()
-                + ", saldo R$ " + conta.getSaldo()
-                + ", situação " + conta.getStatus() + ".");
+        System.out.println("------------------------------------------");
+        System.out.println("Resumo: \nConta: " + conta1.getNumConta()
+                + ", \nTipo: " + conta1.getTipo()
+                + ", \nTitular: " + conta1.getDono()
+                + ", \nSaldo R$ " + conta1.getSaldo()
+                + ", \nStatus: " + conta1.getStatus() + ".");
+                
+        System.out.println("------------------------------------------");
+        System.out.println("Resumo: \nConta: " + conta2.getNumConta()
+                + ", \nTipo: " + conta2.getTipo()
+                + ", \nTitular: " + conta2.getDono()
+                + ", \nSaldo R$ " + conta2.getSaldo()
+                + ", \nStatus: " + conta2.getStatus() + ".");
     }
 }

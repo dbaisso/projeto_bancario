@@ -2,11 +2,19 @@ public class ContaBanco {
 
     private String numConta;
     protected String tipo;
-    public double dono;
+    public String dono;
     public double saldo;
     public String status;
 
-    public ContaBanco(String numConta, String tipo, double dono, double saldo, String status) {
+    public ContaBanco() {
+        this.numConta = "";
+        this.tipo = "";
+        this.dono = "";
+        this.saldo = 0;
+        this.status = "";
+    }
+
+    public ContaBanco(String numConta, String tipo, String dono, double saldo, String status) {
         this.numConta = numConta;
         this.tipo = tipo;
         this.dono = dono;
@@ -30,11 +38,11 @@ public class ContaBanco {
         this.tipo = tipo;
     }
 
-    public double getDono() {
+    public String getDono() {
         return dono;
     }
 
-    public void setDono(double dono) {
+    public void setDono(String dono) {
         this.dono = dono;
     }
 
